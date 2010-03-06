@@ -1,0 +1,6 @@
+<p onMouseover=highlight(this,'#CAF8C9') onMouseout="highlight(this,'#FFFFFF')"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15. Any additional information you wish to add about your teacher ?</strong><br>
+			  <br>
+			<center>
+		  <textarea name="sugg" cols="60" rows="4" maxlength="150"></textarea>
+			</center>
+			  </p>

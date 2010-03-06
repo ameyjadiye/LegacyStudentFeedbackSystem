@@ -1,0 +1,42 @@
+<?php 
+
+session_start();
+
+include("config.php"); 
+
+// connect to the mysql server
+$link = mysql_connect($server, $db_user, $db_pass)
+or die ("Could not connect to mysql because ".mysql_error());
+
+// select the database
+mysql_select_db($database)
+or die ("Could not select database because ".mysql_error());
+
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+$newpassword = $_POST['newpassword'];
+$confirmnewpassword = $_POST['confirmnewpassword'];
+
+$result = mysql_query("SELECT password FROM users WHERE username='$username'");
+if(!$result) 
+{ 
+echo "The username you entered does not exist. <a href=changepw.htm>Try Again</a> or <a href=index.htm>Quit</a>"; 
+} 
+else 
+if($password!= mysql_result($result, 0)) 
+{ 
+echo "You entered an incorrect password. <a href=changepw.htm>Try Again</a> or <a href=index.htm>Quit</a>"; 
+} 
+else
+if($newpassword==$confirmnewpassword) 
+    $sql=mysql_query("UPDATE users SET password='$newpassword' where username='$username'"); 
+    if($sql) 
+    { 
+    echo "Congratulations! You have successfully changed your password. <a href=index.htm>Continue</a>"; 
+    }
+else
+{ 
+echo "The new password and confirm new password fields must be the same. <a href=changepw.htm>Try Again</a> or <a href=index.htm>Quit</a>"; 
+}  
+?> 

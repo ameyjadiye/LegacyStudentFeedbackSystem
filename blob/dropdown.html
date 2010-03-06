@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<script language = "JavaScript">
+var Chevrolet = new Array("Camaro","Corvette","Cavalier","Impala","Malibu","Monte Carlo","Prizm");
+var Ford = new Array("Crown Victoria","Escort","Focus","Mustang","Taurus","Thunderbird","");
+var Oldsmobile = new Array("Alero","Aurora","Intrigue","","","","");
+var Pontiac = new Array("Bonneville","Firebird","Grand Am","Grand Prix","Sunfire","","");
+
+function oselect(Title)
+{
+var mselect = window.document.form1.Model;
+var boxx = eval(Title);
+setopt(window.document.form1.Model, boxx);
+}
+function setopt(ychoice, boxx)
+{
+for (loop=0; loop < ychoice.options.length; loop++)
+{
+ychoice.options[loop].text = boxx[loop];
+}
+}
+</script>
+
+</head>
+
+<body>
+
+</body><form name="form1">
+<select name="Make" 
+onChange="oselect(window.document.form1.Make.options[selectedIndex].text);">
+<option selected>Chevrolet
+<option>Ford
+<option>Oldsmobile
+<option>Pontiac
+</select>
+<select name="Model">
+<option>Camaro 
+<option>Cavalier 
+<option>Corvette 
+<option>Impala 
+<option>Malibu 
+<option>Monte Carlo 
+<option>Prizm 
+</select>
+</form>
+
+</html>
